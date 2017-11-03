@@ -1,0 +1,7 @@
+<view class='contain'>
+  <image src='/images/user.png' class='avatar'></image>
+  <text class='user-name'>Hello 陈野</text>
+  <view class='motto-contain'>
+    <text class='motto'>开启小程序之旅</text>
+  </view>
+</view>
