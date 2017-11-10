@@ -1,17 +1,18 @@
-
 <import src="post-template/post-template.wxml" />
 <swiper indicator-dots="true" indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="#000000" autoplay="true" current="1" interval="3000">
   <swiper-item>
-    <image src="/images/wx.jpg" ></image>
+    <image src="/images/post/bl.png"></image>
   </swiper-item>
   <swiper-item>
-  <image src="/images/vr.png" ></image>
+    <image src="/images/post/vr.png"></image>
   </swiper-item>
   <swiper-item>
-  <image src="/images/px.png" ></image>
+    <image src="/images/post/crab.png"></image>
   </swiper-item>
 </swiper>
 
 <block wx:for="{{post_content}}">
-  <template is="postTemplate" data="{{item}}"/>
+  <view data-postid="{{item.postId}}" catchtap="onInfo">
+    <template is="postTemplate" data="{{...item}}" />
+  </view>
 </block>
