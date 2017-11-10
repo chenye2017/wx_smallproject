@@ -1,0 +1,17 @@
+
+<import src="post-template/post-template.wxml" />
+<swiper indicator-dots="true" indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="#000000" autoplay="true" current="1" interval="3000">
+  <swiper-item>
+    <image src="/images/wx.jpg" ></image>
+  </swiper-item>
+  <swiper-item>
+  <image src="/images/vr.png" ></image>
+  </swiper-item>
+  <swiper-item>
+  <image src="/images/px.png" ></image>
+  </swiper-item>
+</swiper>
+
+<block wx:for="{{post_content}}">
+  <template is="postTemplate" data="{{item}}"/>
+</block>
