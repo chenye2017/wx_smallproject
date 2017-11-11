@@ -1,5 +1,7 @@
 <view class="container">
-  <image class="head-image"  src="{{content.headImgSrc}}"></image>
+  <image class="head-image"  src="{{isstart ? content.music.coverImg : content.headImgSrc}}"></image>
+  <image class="audio" wx:if= "{{isstart}}"src = "/images/music/music-stop.png" catchtap="onMusci"></image>
+  <image class="audio" wx:else src = "/images/music/music-start.png" catchtap="onMusci"></image>
   <view class="author">
     <image class="author-avatar" src="{{content.avatar}}"></image>
     <text class="author-name">{{content.author}}</text>
@@ -9,8 +11,9 @@
   <text class="title">{{content.title}}</text>
   <view class="image-contain">
     <view class="images">
-      <image class="image" src="/images/icon/collection.png"></image>
-      <image class="image" src="/images/icon/share.png" ></image>
+      <image wx:if="{{collect}}" class="image" src="/images/icon/collection.png" catchtap="onCollect"></image>
+      <image wx:else class="image" src="/images/icon/collection-anti.png" catchtap="onCollect"></image>
+      <image class="image" src="/images/icon/share.png" catchtap="onShare"></image>
     </view>
     <view class="horizon"></view>
   </view>

@@ -71,3 +71,12 @@
   margin: 0 auto;
   z-index: -99;
 }
+.audio {
+  width: 102rpx;
+  height: 110rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -51rpx;
+  top: 180rpx;
+  opacity: 0.6;
+}
