@@ -71,5 +71,11 @@ Page({
       url: 'post-des/post-des?id=' + event.currentTarget.dataset.postid
     })
     
+  },
+  onDirect: function(event) {
+    var id = event.target.dataset.postid;
+    wx.navigateTo({
+      url: 'post-des/post-des?id=' + id
+    })
   }
 })

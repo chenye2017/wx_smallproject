@@ -1,13 +1,13 @@
 <import src="post-template/post-template.wxml" />
-<swiper indicator-dots="true" indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="#000000" autoplay="true" current="1" interval="3000">
+<swiper indicator-dots="true" indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="#000000" autoplay="true" current="1" interval="3000" catchtap="onDirect">
   <swiper-item>
-    <image src="/images/post/bl.png"></image>
+    <image src="/images/post/bl.png" data-postid="1" ></image>
   </swiper-item>
   <swiper-item>
-    <image src="/images/post/vr.png"></image>
+    <image src="/images/post/vr.png" data-postid="4" ></image>
   </swiper-item>
   <swiper-item>
-    <image src="/images/post/crab.png"></image>
+    <image src="/images/post/crab.png" data-postid="0" ></image>
   </swiper-item>
 </swiper>
 
