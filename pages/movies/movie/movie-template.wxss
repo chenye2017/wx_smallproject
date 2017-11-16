@@ -1,1 +1,17 @@
 @import "../star/star-template.wxss"; 
+.movie-contain {
+  display: flex;
+  flex-direction: column;
+  padding: 0 22rpx;
+}
+
+.movie-image {
+  width:200rpx;
+  height: 270rpx;
+  margin-bottom: 20rpx;
+}
+
+.movie-title {
+  font-size: 24rpx;
+  margin-bottom: 16rpx;
+}
