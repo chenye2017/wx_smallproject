@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      postid : 0,
-      isstart: false
+    postid: 0,
+    isstart: false
   },
 
   /**
@@ -31,21 +31,21 @@ Page({
     this.setData({
       content: content,
       collect: collect,
-      postid : id
+      postid: id
     })
 
     if (globalData.globalData.isstart && id == globalData.globalData.isstartMusic) {
       this.setData({
-        isstart:true
+        isstart: true
       })
-    } 
+    }
 
     this.setMusicStatus();
-    
+
 
   },
 
-  setMusicStatus: function() {
+  setMusicStatus: function () {
     var that = this;
     wx.onBackgroundAudioPlay(function () {
       that.setData({
@@ -110,25 +110,25 @@ Page({
   onCollect: function () {
     var id = this.data.postid;
     var collects = wx.getStorageSync('collects'); //同步获取缓存
-    
-    
+
+
     var collect = collects[id];
-    
+
     this.showModal(collect, id);
-   // this.getStorage('collects', id);  //异步调用
+    // this.getStorage('collects', id);  //异步调用
   },
-  getStorage:function (key, id) {
-     //异步获取缓存
-     var that = this;
-     wx.getStorage({
-       key: 'collects',
-       success: function(res) {
-         var collects = res.data;
-         var collect = collects[id]; //只一块不用考虑res.data存不存在，因为页面加载的时候如果那个对象不存在，就会新的实例化一个对象
-         that.showModal(collect, id);
-       }
-      
-     })
+  getStorage: function (key, id) {
+    //异步获取缓存
+    var that = this;
+    wx.getStorage({
+      key: 'collects',
+      success: function (res) {
+        var collects = res.data;
+        var collect = collects[id]; //只一块不用考虑res.data存不存在，因为页面加载的时候如果那个对象不存在，就会新的实例化一个对象
+        that.showModal(collect, id);
+      }
+
+    })
   },
   showToast: function (collect) {
     wx.showToast({
@@ -137,24 +137,27 @@ Page({
       icon: 'success'
     })
   },
-  showModal:function (collect, id) {
+  showModal: function (collect, id) {
     var that = this;
     wx.showModal({
-      title: collect ? '取消收藏':'收藏',
+      title: collect ? '取消收藏' : '收藏',
       content: '',
       showCancel: true,
-      success : function () {
-        var collects = wx.getStorageSync('collects');
-        collects[id] = !collect;
-        wx.setStorageSync('collects', collects);
-        that.showToast(!collect);
-        that.setData({
-          collect: !collect
-        })
+      success: function (res) {
+        console.log(res);
+        if (res.confirm == true) {
+          var collects = wx.getStorageSync('collects');
+          collects[id] = !collect;
+          wx.setStorageSync('collects', collects);
+          that.showToast(!collect);
+          that.setData({
+            collect: !collect
+          })
+        }
       }
     })
   },
-  onShare : function () {
+  onShare: function () {
     var itemList = [
       '分享到朋友圈',
       '分享到QQ空间',
@@ -164,32 +167,32 @@ Page({
     wx.showActionSheet({
       itemList: itemList,
       itemColor: "#666699",
-      success:function(res) {
+      success: function (res) {
         console.log(res);
-          wx.showModal({
-            title: '你点击了'+itemList[res.tapIndex],
-            content: '',
-          })
+        wx.showModal({
+          title: '你点击了' + itemList[res.tapIndex],
+          content: '',
+        })
       }
     })
   },
-  onMusci:function() {
+  onMusci: function () {
     var id = this.data.postid;
     var content = dataContent.postList[id];
     var start = global.isstart;
-    
+
     if (!start) {
       this.setData({
         isstart: !start
       })
       wx.playBackgroundAudio({
         dataUrl: content.music.url,
-        titel : content.music.title,
-        coverImgUrl:content.music.coverImg
+        titel: content.music.title,
+        coverImgUrl: content.music.coverImg
       })
       globalData.globalData.isstart = true;
       globalData.globalData.isstartMusic = id;
-      
+
     } else {
       this.setData({
         isstart: !start
@@ -197,11 +200,11 @@ Page({
       wx.pauseBackgroundAudio();
       globalData.globalData.isstart = false;
     }
-    
-    
+
+
   }
 
 
 })
 
- 
+
