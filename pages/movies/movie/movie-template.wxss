@@ -2,7 +2,7 @@
 .movie-contain {
   display: flex;
   flex-direction: column;
-  padding: 0 22rpx;
+  padding: 0 22rpx 15rpx 22rpx;
 }
 
 .movie-image {

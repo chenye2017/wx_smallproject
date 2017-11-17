@@ -1,7 +1,8 @@
 App({
   globalData :{
     isstart : false,
-    isstartMusic  : 0
+    isstartMusic  : 0,
+    doubanApi : 'https://api.douban.com'
   },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）

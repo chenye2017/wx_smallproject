@@ -1,4 +1,5 @@
 <view class="container">
+
   <image class="head-image"  src="{{isstart ? content.music.coverImg : content.headImgSrc}}"></image>
   <image class="audio" wx:if= "{{isstart}}"src = "/images/music/music-stop.png" catchtap="onMusci"></image>
   <image class="audio" wx:else src = "/images/music/music-start.png" catchtap="onMusci"></image>
