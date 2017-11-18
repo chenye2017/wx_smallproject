@@ -3,7 +3,7 @@
   <view class="movie-list-contain">
     <view class="movie-list-head">
       <text class="head-title">{{category}}</text>
-        <view class="head-more">
+        <view class="head-more" catchtap="onMore" data-category="{{category}}">
           <text class="head-more-title">更多</text>
           <image class="head-more-image" src="/images/icon/arrow-right.png"></image>
         </view>

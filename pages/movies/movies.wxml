@@ -1,5 +1,12 @@
 <import src="movie-list/movie-list-template.wxml" />
-<view class="container">
+<import src="moviepage/moviepage-template.wxml" />
+<view class="search">
+  <icon class="search-image" type="search" size="13" color="#405f80"/>
+  <input type="text" placeholder="血战钢锯岭、你的名字" placeholder-class="placeholder" bindfocus="onFocus" bindconfirm="bindConfirm"></input>
+  <image src="/images/icon/xx.png" class="search-cancel" catchtap="onCancel"></image>
+</view>
+<block wx:if="{{isMovie}}">
+<view class="container" >
   <view class="movie-list-view">
       <template is="movie-list" data="{{...inTheater}}"></template>
   </view>
@@ -10,3 +17,9 @@
     <template is="movie-list" data="{{...top250}}"></template>
   </view>
 </view>
+</block>
+<block wx:if="{{issearch}}">
+  <view >
+    <template is="moreMovie" data="{{...searchMovie}}"/>
+  </view>
+</block>

@@ -1,0 +1,4 @@
+<!--pages/movies/more/more.wxml-->
+<import src="../moviepage/moviepage-template.wxml" />
+<template is="moreMovie" data="{{movies}}"></template>
+

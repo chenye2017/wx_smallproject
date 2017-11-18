@@ -10,6 +10,29 @@ function countStar(score) {
   }
   return scoreArr
 }
+
+function http(url, callback) {
+  wx.request({
+    url: url,
+    header: {
+      "Content-Type": "json"
+    },
+    method: 'GET',
+    success: function (res) {
+      //console.log(res);
+      //that.handleMovieInfo(res, key, category, numCategory);
+      callback(res);
+    },
+    fail: function (res) {
+      console.log(res);
+    }
+  })
+}
+
+
+
 module.exports = {
-  countStar: countStar
+  countStar: countStar,
+  http : http,
+  
 }
